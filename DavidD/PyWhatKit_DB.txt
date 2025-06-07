@@ -1,0 +1,30 @@
+Date: 6/6/2025
+Time: 15:24
+Phone Number: +593979216140
+Message: ¡Hola! Este es un mensaje enviado desde Python 🐍 vía WhatsApp.
+--------------------
+Date: 6/6/2025
+Time: 15:26
+Phone Number: +593979216140
+Message: ¡Hola! Este es un mensaje enviado desde Python 🐍 vía WhatsApp.
+--------------------
+Date: 6/6/2025
+Time: 15:29
+Phone Number: +593962600990
+Message: ¡Hola! Este es un mensaje enviado desde Python 🐍 vía WhatsApp.
+--------------------
+Date: 6/6/2025
+Time: 15:39
+Phone Number: +593961231746
+Message: ¡Hola! Este mensaje fue enviado automáticamente con Python 📲
+--------------------
+Date: 6/6/2025
+Time: 15:40
+Phone Number: +593962600990
+Message: ¡Hola! Este mensaje fue enviado automáticamente con Python 📲
+--------------------
+Date: 6/6/2025
+Time: 15:40
+Phone Number: +593969810780
+Message: ¡Hola! Este mensaje fue enviado automáticamente con Python 📲
+--------------------
