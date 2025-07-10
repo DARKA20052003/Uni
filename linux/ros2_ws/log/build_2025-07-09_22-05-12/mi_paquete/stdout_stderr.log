@@ -1,0 +1,29 @@
+running egg_info
+writing ../../build/mi_paquete/mi_paquete.egg-info/PKG-INFO
+writing dependency_links to ../../build/mi_paquete/mi_paquete.egg-info/dependency_links.txt
+writing entry points to ../../build/mi_paquete/mi_paquete.egg-info/entry_points.txt
+writing requirements to ../../build/mi_paquete/mi_paquete.egg-info/requires.txt
+writing top-level names to ../../build/mi_paquete/mi_paquete.egg-info/top_level.txt
+reading manifest file '../../build/mi_paquete/mi_paquete.egg-info/SOURCES.txt'
+writing manifest file '../../build/mi_paquete/mi_paquete.egg-info/SOURCES.txt'
+running build
+running build_py
+copying mi_paquete/nodo_ejemplo.py -> /home/darka/Uni/linux/ros2_ws/build/mi_paquete/build/lib/mi_paquete
+running install
+running install_lib
+creating /home/darka/Uni/linux/ros2_ws/install/mi_paquete/lib/python3.10/site-packages/mi_paquete
+copying /home/darka/Uni/linux/ros2_ws/build/mi_paquete/build/lib/mi_paquete/nodo_ejemplo.py -> /home/darka/Uni/linux/ros2_ws/install/mi_paquete/lib/python3.10/site-packages/mi_paquete
+copying /home/darka/Uni/linux/ros2_ws/build/mi_paquete/build/lib/mi_paquete/__init__.py -> /home/darka/Uni/linux/ros2_ws/install/mi_paquete/lib/python3.10/site-packages/mi_paquete
+byte-compiling /home/darka/Uni/linux/ros2_ws/install/mi_paquete/lib/python3.10/site-packages/mi_paquete/nodo_ejemplo.py to nodo_ejemplo.cpython-310.pyc
+byte-compiling /home/darka/Uni/linux/ros2_ws/install/mi_paquete/lib/python3.10/site-packages/mi_paquete/__init__.py to __init__.cpython-310.pyc
+running install_data
+creating /home/darka/Uni/linux/ros2_ws/install/mi_paquete/share/ament_index
+creating /home/darka/Uni/linux/ros2_ws/install/mi_paquete/share/ament_index/resource_index
+creating /home/darka/Uni/linux/ros2_ws/install/mi_paquete/share/ament_index/resource_index/packages
+copying resource/mi_paquete -> /home/darka/Uni/linux/ros2_ws/install/mi_paquete/share/ament_index/resource_index/packages
+copying package.xml -> /home/darka/Uni/linux/ros2_ws/install/mi_paquete/share/mi_paquete
+running install_egg_info
+Copying ../../build/mi_paquete/mi_paquete.egg-info to /home/darka/Uni/linux/ros2_ws/install/mi_paquete/lib/python3.10/site-packages/mi_paquete-0.0.0-py3.10.egg-info
+running install_scripts
+Installing nodo script to /home/darka/Uni/linux/ros2_ws/install/mi_paquete/lib/mi_paquete
+writing list of installed files to '/home/darka/Uni/linux/ros2_ws/build/mi_paquete/install.log'

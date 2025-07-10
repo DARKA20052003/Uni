@@ -1,0 +1,31 @@
+[5.277s] Invoking command in '/home/darka/Uni/linux/ros2_ws/src/mi_paquete': PYTHONPATH=/home/darka/Uni/linux/ros2_ws/build/mi_paquete/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/darka/Uni/linux/ros2_ws/install/mi_paquete/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/mi_paquete build --build-base /home/darka/Uni/linux/ros2_ws/build/mi_paquete/build install --record /home/darka/Uni/linux/ros2_ws/build/mi_paquete/install.log --single-version-externally-managed install_data
+[7.504s] running egg_info
+[7.514s] writing ../../build/mi_paquete/mi_paquete.egg-info/PKG-INFO
+[7.515s] writing dependency_links to ../../build/mi_paquete/mi_paquete.egg-info/dependency_links.txt
+[7.523s] writing entry points to ../../build/mi_paquete/mi_paquete.egg-info/entry_points.txt
+[7.523s] writing requirements to ../../build/mi_paquete/mi_paquete.egg-info/requires.txt
+[7.527s] writing top-level names to ../../build/mi_paquete/mi_paquete.egg-info/top_level.txt
+[7.546s] reading manifest file '../../build/mi_paquete/mi_paquete.egg-info/SOURCES.txt'
+[7.554s] writing manifest file '../../build/mi_paquete/mi_paquete.egg-info/SOURCES.txt'
+[7.559s] running build
+[7.559s] running build_py
+[7.562s] copying mi_paquete/nodo_ejemplo.py -> /home/darka/Uni/linux/ros2_ws/build/mi_paquete/build/lib/mi_paquete
+[7.564s] running install
+[7.570s] running install_lib
+[7.574s] creating /home/darka/Uni/linux/ros2_ws/install/mi_paquete/lib/python3.10/site-packages/mi_paquete
+[7.578s] copying /home/darka/Uni/linux/ros2_ws/build/mi_paquete/build/lib/mi_paquete/nodo_ejemplo.py -> /home/darka/Uni/linux/ros2_ws/install/mi_paquete/lib/python3.10/site-packages/mi_paquete
+[7.579s] copying /home/darka/Uni/linux/ros2_ws/build/mi_paquete/build/lib/mi_paquete/__init__.py -> /home/darka/Uni/linux/ros2_ws/install/mi_paquete/lib/python3.10/site-packages/mi_paquete
+[7.584s] byte-compiling /home/darka/Uni/linux/ros2_ws/install/mi_paquete/lib/python3.10/site-packages/mi_paquete/nodo_ejemplo.py to nodo_ejemplo.cpython-310.pyc
+[7.589s] byte-compiling /home/darka/Uni/linux/ros2_ws/install/mi_paquete/lib/python3.10/site-packages/mi_paquete/__init__.py to __init__.cpython-310.pyc
+[7.590s] running install_data
+[7.593s] creating /home/darka/Uni/linux/ros2_ws/install/mi_paquete/share/ament_index
+[7.596s] creating /home/darka/Uni/linux/ros2_ws/install/mi_paquete/share/ament_index/resource_index
+[7.597s] creating /home/darka/Uni/linux/ros2_ws/install/mi_paquete/share/ament_index/resource_index/packages
+[7.597s] copying resource/mi_paquete -> /home/darka/Uni/linux/ros2_ws/install/mi_paquete/share/ament_index/resource_index/packages
+[7.600s] copying package.xml -> /home/darka/Uni/linux/ros2_ws/install/mi_paquete/share/mi_paquete
+[7.601s] running install_egg_info
+[7.620s] Copying ../../build/mi_paquete/mi_paquete.egg-info to /home/darka/Uni/linux/ros2_ws/install/mi_paquete/lib/python3.10/site-packages/mi_paquete-0.0.0-py3.10.egg-info
+[7.630s] running install_scripts
+[7.818s] Installing nodo script to /home/darka/Uni/linux/ros2_ws/install/mi_paquete/lib/mi_paquete
+[7.825s] writing list of installed files to '/home/darka/Uni/linux/ros2_ws/build/mi_paquete/install.log'
+[8.037s] Invoked command in '/home/darka/Uni/linux/ros2_ws/src/mi_paquete' returned '0': PYTHONPATH=/home/darka/Uni/linux/ros2_ws/build/mi_paquete/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/darka/Uni/linux/ros2_ws/install/mi_paquete/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/mi_paquete build --build-base /home/darka/Uni/linux/ros2_ws/build/mi_paquete/build install --record /home/darka/Uni/linux/ros2_ws/build/mi_paquete/install.log --single-version-externally-managed install_data
