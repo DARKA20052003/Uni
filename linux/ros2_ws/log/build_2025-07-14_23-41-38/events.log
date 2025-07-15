@@ -1,0 +1,107 @@
+[0.000000] (-) TimerEvent: {}
+[0.003064] (mi_paquete) JobQueued: {'identifier': 'mi_paquete', 'dependencies': OrderedDict()}
+[0.003311] (mi_paquete) JobStarted: {'identifier': 'mi_paquete'}
+[0.098331] (-) TimerEvent: {}
+[0.199575] (-) TimerEvent: {}
+[0.302575] (-) TimerEvent: {}
+[0.404828] (-) TimerEvent: {}
+[0.507625] (-) TimerEvent: {}
+[0.610859] (-) TimerEvent: {}
+[0.712159] (-) TimerEvent: {}
+[0.813646] (-) TimerEvent: {}
+[0.914622] (-) TimerEvent: {}
+[1.015594] (-) TimerEvent: {}
+[1.116617] (-) TimerEvent: {}
+[1.217583] (-) TimerEvent: {}
+[1.318543] (-) TimerEvent: {}
+[1.419547] (-) TimerEvent: {}
+[1.520530] (-) TimerEvent: {}
+[1.623526] (-) TimerEvent: {}
+[1.726465] (-) TimerEvent: {}
+[1.829940] (-) TimerEvent: {}
+[1.932568] (-) TimerEvent: {}
+[2.033540] (-) TimerEvent: {}
+[2.134625] (-) TimerEvent: {}
+[2.235927] (-) TimerEvent: {}
+[2.337673] (-) TimerEvent: {}
+[2.438837] (-) TimerEvent: {}
+[2.540090] (-) TimerEvent: {}
+[2.641134] (-) TimerEvent: {}
+[2.742172] (-) TimerEvent: {}
+[2.843140] (-) TimerEvent: {}
+[2.945656] (-) TimerEvent: {}
+[3.046635] (-) TimerEvent: {}
+[3.149876] (-) TimerEvent: {}
+[3.254209] (-) TimerEvent: {}
+[3.355161] (-) TimerEvent: {}
+[3.456300] (-) TimerEvent: {}
+[3.557308] (-) TimerEvent: {}
+[3.660992] (-) TimerEvent: {}
+[3.764895] (-) TimerEvent: {}
+[3.866652] (-) TimerEvent: {}
+[3.967628] (-) TimerEvent: {}
+[4.069584] (-) TimerEvent: {}
+[4.170571] (-) TimerEvent: {}
+[4.271544] (-) TimerEvent: {}
+[4.372558] (-) TimerEvent: {}
+[4.473628] (-) TimerEvent: {}
+[4.574709] (-) TimerEvent: {}
+[4.676492] (-) TimerEvent: {}
+[4.778038] (-) TimerEvent: {}
+[4.879201] (-) TimerEvent: {}
+[4.980211] (-) TimerEvent: {}
+[5.081233] (-) TimerEvent: {}
+[5.182273] (-) TimerEvent: {}
+[5.284207] (-) TimerEvent: {}
+[5.385288] (-) TimerEvent: {}
+[5.488033] (-) TimerEvent: {}
+[5.520410] (mi_paquete) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'egg_info', '--egg-base', '../../build/mi_paquete', 'build', '--build-base', '/home/darka/Uni/linux/ros2_ws/build/mi_paquete/build', 'install', '--record', '/home/darka/Uni/linux/ros2_ws/build/mi_paquete/install.log', '--single-version-externally-managed', 'install_data'], 'cwd': '/home/darka/Uni/linux/ros2_ws/src/mi_paquete', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'darka', 'LC_TIME': 'es_EC.UTF-8', 'XDG_SEAT': 'seat0', 'XDG_SESSION_TYPE': 'x11', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib', 'HOME': '/home/darka', 'OLDPWD': '/home/darka', 'DESKTOP_SESSION': 'xubuntu', 'ROS_PYTHON_VERSION': '3', 'LC_MONETARY': 'es_EC.UTF-8', 'SYSTEMD_EXEC_PID': '1276', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'QT_QPA_PLATFORMTHEME': 'gtk2', 'COLCON_PREFIX_PATH': '/home/darka/Uni/linux/ros2_ws/install', 'ROS_DISTRO': 'humble', 'GTK_IM_MODULE': 'ibus', 'LOGNAME': 'darka', 'WINDOWID': '71304838', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'CLUTTER_BACKEND': 'x11', 'USERNAME': 'darka', 'TERM': 'xterm-256color', 'GTK_OVERLAY_SCROLLING': '0', 'XDG_SESSION_ID': '2', 'ROS_LOCALHOST_ONLY': '0', 'WINDOWPATH': '2', 'PATH': '/opt/ros/humble/bin:/home/darka/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/darka/.local/bin', 'SESSION_MANAGER': 'local/darka-HP-15-Notebook-PC:@/tmp/.ICE-unix/1314,unix/darka-HP-15-Notebook-PC:/tmp/.ICE-unix/1314', 'XDG_MENU_PREFIX': 'xfce-', 'LC_ADDRESS': 'es_EC.UTF-8', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0.0', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'XFCE', 'LC_TELEPHONE': 'es_EC.UTF-8', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'xubuntu', 'XAUTHORITY': '/run/user/1000/gdm/Xauthority', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'AMENT_PREFIX_PATH': '/home/darka/Uni/linux/ros2_ws/install/mi_paquete:/opt/ros/humble', 'SHELL': '/bin/bash', 'LC_NAME': 'es_EC.UTF-8', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'xubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'LC_MEASUREMENT': 'es_EC.UTF-8', 'GPG_AGENT_INFO': '/run/user/1000/gnupg/S.gpg-agent:0:1', 'LC_IDENTIFICATION': 'es_EC.UTF-8', 'QT_IM_MODULE': 'ibus', 'XDG_VTNR': '2', 'PWD': '/home/darka/Uni/linux/ros2_ws/build/mi_paquete', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-xubuntu:/etc/xdg:/etc/xdg', 'CLUTTER_IM_MODULE': 'ibus', 'XDG_DATA_DIRS': '/usr/share/xfce4:/usr/share/xubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop:/usr/share', 'PYTHONPATH': '/home/darka/Uni/linux/ros2_ws/build/mi_paquete/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/darka/Uni/linux/ros2_ws/install/mi_paquete/lib/python3.10/site-packages:/home/darka/Uni/linux/ros2_ws/install/mi_paquete/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'LC_NUMERIC': 'es_EC.UTF-8', 'LC_PAPER': 'es_EC.UTF-8', 'COLCON': '1', 'VTE_VERSION': '6800'}, 'shell': False}
+[5.588285] (-) TimerEvent: {}
+[5.692160] (-) TimerEvent: {}
+[5.793310] (-) TimerEvent: {}
+[5.894500] (-) TimerEvent: {}
+[5.995541] (-) TimerEvent: {}
+[6.096580] (-) TimerEvent: {}
+[6.198952] (-) TimerEvent: {}
+[6.301270] (-) TimerEvent: {}
+[6.402299] (-) TimerEvent: {}
+[6.503325] (-) TimerEvent: {}
+[6.604410] (-) TimerEvent: {}
+[6.705451] (-) TimerEvent: {}
+[6.806478] (-) TimerEvent: {}
+[6.909618] (-) TimerEvent: {}
+[7.010591] (-) TimerEvent: {}
+[7.112840] (-) TimerEvent: {}
+[7.215651] (-) TimerEvent: {}
+[7.316685] (-) TimerEvent: {}
+[7.417810] (-) TimerEvent: {}
+[7.475184] (mi_paquete) StdoutLine: {'line': b'running egg_info\n'}
+[7.480792] (mi_paquete) StdoutLine: {'line': b'writing ../../build/mi_paquete/mi_paquete.egg-info/PKG-INFO\n'}
+[7.486449] (mi_paquete) StdoutLine: {'line': b'writing dependency_links to ../../build/mi_paquete/mi_paquete.egg-info/dependency_links.txt\n'}
+[7.487318] (mi_paquete) StdoutLine: {'line': b'writing entry points to ../../build/mi_paquete/mi_paquete.egg-info/entry_points.txt\n'}
+[7.488083] (mi_paquete) StdoutLine: {'line': b'writing requirements to ../../build/mi_paquete/mi_paquete.egg-info/requires.txt\n'}
+[7.493053] (mi_paquete) StdoutLine: {'line': b'writing top-level names to ../../build/mi_paquete/mi_paquete.egg-info/top_level.txt\n'}
+[7.498101] (mi_paquete) StdoutLine: {'line': b"reading manifest file '../../build/mi_paquete/mi_paquete.egg-info/SOURCES.txt'\n"}
+[7.518093] (-) TimerEvent: {}
+[7.522428] (mi_paquete) StdoutLine: {'line': b"writing manifest file '../../build/mi_paquete/mi_paquete.egg-info/SOURCES.txt'\n"}
+[7.526635] (mi_paquete) StdoutLine: {'line': b'running build\n'}
+[7.527533] (mi_paquete) StdoutLine: {'line': b'running build_py\n'}
+[7.528233] (mi_paquete) StdoutLine: {'line': b'running install\n'}
+[7.534477] (mi_paquete) StdoutLine: {'line': b'running install_lib\n'}
+[7.536688] (mi_paquete) StdoutLine: {'line': b'running install_data\n'}
+[7.540721] (mi_paquete) StdoutLine: {'line': b'running install_egg_info\n'}
+[7.553816] (mi_paquete) StdoutLine: {'line': b"removing '/home/darka/Uni/linux/ros2_ws/install/mi_paquete/lib/python3.10/site-packages/mi_paquete-0.0.0-py3.10.egg-info' (and everything under it)\n"}
+[7.561558] (mi_paquete) StdoutLine: {'line': b'Copying ../../build/mi_paquete/mi_paquete.egg-info to /home/darka/Uni/linux/ros2_ws/install/mi_paquete/lib/python3.10/site-packages/mi_paquete-0.0.0-py3.10.egg-info\n'}
+[7.583722] (mi_paquete) StdoutLine: {'line': b'running install_scripts\n'}
+[7.618416] (-) TimerEvent: {}
+[7.720912] (-) TimerEvent: {}
+[7.749016] (mi_paquete) StdoutLine: {'line': b'Installing nodo script to /home/darka/Uni/linux/ros2_ws/install/mi_paquete/lib/mi_paquete\n'}
+[7.759077] (mi_paquete) StdoutLine: {'line': b"writing list of installed files to '/home/darka/Uni/linux/ros2_ws/build/mi_paquete/install.log'\n"}
+[7.823625] (-) TimerEvent: {}
+[7.927937] (-) TimerEvent: {}
+[7.994079] (mi_paquete) CommandEnded: {'returncode': 0}
+[8.028114] (-) TimerEvent: {}
+[8.131704] (-) TimerEvent: {}
+[8.235293] (-) TimerEvent: {}
+[8.270780] (mi_paquete) JobEnded: {'identifier': 'mi_paquete', 'rc': 0}
+[8.277978] (-) EventReactorShutdown: {}
