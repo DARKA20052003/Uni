@@ -1,3 +1,0 @@
-[console_scripts]
-nodo = mi_paquete.nodo_ejemplo:main
-
