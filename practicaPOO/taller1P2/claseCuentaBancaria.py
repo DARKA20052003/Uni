@@ -10,17 +10,25 @@
 class CuentaBancaria:
     def __init__ (self, titular, saldo):
         self.titular=titular
-        self.saldo=saldo
+        self.saldoOriginal=saldo
     def depositar(self, monto):
-        self.monto= self.saldo + monto
+        self.saldoNuevo=self.saldoOriginal + monto
+        return self.saldoNuevo
+    def actualizarSaldo(self):
+        self.saldoOriginal=self.saldoNuevo
     def retirar(self, monto):
         if self.saldo > 0:
-            self.montoRetirado= self.saldo - monto
+            self.montoRetirado= self.saldoOriginal - monto
+            self.saldoNuevo=self.montoRetirado
+            return self.saldoNuevo
         else:
             print('No hay fondos suficientes.')
     def mostrarSaldo(self):
-        print(f'Titular: {self.titular}\nSaldo: ${self.saldo}')
+        print(f'Titular: {self.titular}\nSaldo: ${self.saldoNuevo}')
+
 cuenta1 = CuentaBancaria('Andrés David Darquea Alcívar', 100)
 cuenta2 = CuentaBancaria('Cindy Vanessa Alcívar Murillo', 326)
-cuenta1.depositar(100)
+
+cuenta1.mostrarSaldo()
+cuenta1.retirar(50)
 cuenta1.mostrarSaldo()
