@@ -6,8 +6,9 @@ import time
 import subprocess
 import signal
 import webbrowser
-from urllib.parse import quote
+from urllib.parse import urlencode, quote
 import shutil
+import re
 
 # --- Ajustes OpenCV / logs ---
 cv2.setUseOptimized(True)
@@ -28,43 +29,78 @@ except Exception:
 numeros_emergencia = ["+593979216140"]
 mensaje_auxilio = "🚨 ¡Emergencia! Se ha confirmado una alerta con gestos. Por favor, contactar con la persona inmediatamente."
 
-def abrir_whatsapp_web(numero: str, mensaje: str):
-    """
-    Abre WhatsApp Web con el chat y el texto prellenado.
-    Compatible con Brave (snap), otros navegadores y xdg-open.
-    """
-    url = f"https://web.whatsapp.com/send?phone={numero}&text={quote(mensaje)}"
-
-    # 1) Si existe comando 'brave' / 'brave-browser' (snap o deb), úsalo explícitamente
-    brave_cmd = shutil.which("brave") or shutil.which("brave-browser")
-    if brave_cmd:
+# --- Forzar Brave (.deb) como navegador para PyWhatKit/webbrowser ---
+def configurar_brave_default():
+    # Rutas típicas de Brave .deb
+    posibles = ["/usr/bin/brave-browser", "/usr/bin/brave"]
+    brave_path = next((p for p in posibles if os.path.exists(p)), None)
+    if brave_path:
         try:
-            subprocess.Popen([brave_cmd, "--new-tab", url],
-                             stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-            return
+            webbrowser.register('brave', None, webbrowser.BackgroundBrowser(brave_path))
+            webbrowser.get('brave')  # valida registro
+            os.environ["BROWSER"] = "brave"
+            print(f"[WhatsApp] Usando Brave en {brave_path} para abrir WhatsApp Web.")
+            return True
         except Exception as e:
-            print(f"[Aviso] Lanzar Brave falló: {e}")
+            print(f"[Aviso] No se pudo fijar Brave: {e}")
+    else:
+        print("[Aviso] No encontré Brave en /usr/bin. Se usará el navegador por defecto del sistema.")
+    return False
 
-    # 2) Intentar con el navegador por defecto de Python
-    try:
-        webbrowser.open(url, new=2)  # nueva pestaña si es posible
-        return
-    except Exception as e:
-        print(f"[Aviso] webbrowser.open falló: {e}")
+configurar_brave_default()
 
-    # 3) Último recurso: xdg-open
+# --- Envío WhatsApp: preferir PyWhatKit (automático) y fallback a abrir URL ---
+import pywhatkit as kit
+
+def _normalizar_e164(numero: str, default_cc: str = "593") -> str:
+    """Convierte a E.164 con '+'. Acepta +593..., 009593..., 0xxxxxxxxx (EC), 593..."""
+    d = re.sub(r'\D', '', numero or "")
+    if not d:
+        return ""
+    if d.startswith("00"):
+        d = d[2:]
+    if d.startswith(default_cc):
+        return "+" + d
+    if d.startswith("0") and len(d) == 10:     # 0xxxxxxxxx (Ecuador)
+        return "+" + default_cc + d[1:]
+    if len(d) == 9 and d.startswith("9"):      # 9xxxxxxxx (celular EC)
+        return "+" + default_cc + d
+    if len(d) >= 10:
+        return "+" + d
+    return "+" + d
+
+def _abrir_url_generico(numero_sin_mas: str, mensaje: str):
+    """Abre chat para envío manual si falla PyWhatKit."""
+    params = {"phone": numero_sin_mas, "text": mensaje}
+    url_api = "https://api.whatsapp.com/send?" + urlencode(params, quote_via=quote)
     try:
-        subprocess.Popen(["xdg-open", url],
-                         stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-    except Exception as e:
-        print(f"[Error] No se pudo abrir el navegador: {e}")
+        webbrowser.open(url_api, new=2)
+    except Exception:
+        try:
+            subprocess.Popen(["xdg-open", url_api],
+                             stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        except Exception as e:
+            print(f"[Error] No se pudo abrir el navegador: {e}")
+            print(f"➡️ Copia/pega esta URL: {url_api}")
 
 def enviar_mensajes_emergencia():
     for numero in numeros_emergencia:
-        print(f"[WhatsApp] Abriendo chat con {numero} (envío manual)…")
-        abrir_whatsapp_web(numero, mensaje_auxilio)
-        print("   ➜ En la pestaña, presiona Enter para enviar.")
-        time.sleep(2)  # pequeña pausa entre contactos
+        e164 = _normalizar_e164(numero)
+        if not e164 or not e164.startswith("+"):
+            print(f"[Error] Número inválido: {numero}")
+            continue
+        print(f"[WhatsApp] Enviando mensaje a {e164}...")
+        try:
+            # PyWhatKit abre Brave (registrado arriba) y automatiza el 'Enter'
+            kit.sendwhatmsg_instantly(e164, mensaje_auxilio, wait_time=70, tab_close=False)
+            time.sleep(80)  # dejar tiempo a la automatización a completar
+        except Exception as e:
+            print(f"[PyWhatKit falló: {e}] → Abriendo chat para envío manual.")
+            # quitar '+' para la URL api.whatsapp.com
+            numero_sin_mas = e164[1:]
+            _abrir_url_generico(numero_sin_mas, mensaje_auxilio)
+            print("   ➜ En la pestaña, presiona Enter para enviar.")
+            time.sleep(2)
 
 # --- Detectar puerto Arduino en Linux ---
 def detectar_puerto_arduino():
@@ -98,20 +134,17 @@ mp_styles = mp.solutions.drawing_styles
 
 # --- Cámara con V4L2 + MJPEG para menos CPU ---
 def abrir_camara():
-    # Forzar backend V4L2 si está disponible
     cap = cv2.VideoCapture(0, cv2.CAP_V4L2)
     if not cap.isOpened():
         cap = cv2.VideoCapture(0)  # fallback
-    # Pedir MJPG (si la webcam lo soporta, reduce CPU)
     try:
         fourcc = cv2.VideoWriter_fourcc(*'MJPG')
         cap.set(cv2.CAP_PROP_FOURCC, fourcc)
     except Exception:
         pass
-    cap.set(cv2.CAP_PROP_FRAME_WIDTH, 640)   # calidad visual fluida
+    cap.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
     cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
-    cap.set(cv2.CAP_PROP_FPS, 30)            # objetivo de fluidez
-    # Evita buffering largo (si el backend lo soporta)
+    cap.set(cv2.CAP_PROP_FPS, 30)
     try:
         cap.set(cv2.CAP_PROP_BUFFERSIZE, 1)
     except Exception:
@@ -138,7 +171,6 @@ tiempo_bloqueo = 30  # segundos
 
 # --- Utilidades de gesto ---
 def get_finger_states(landmarks, is_right_hand):
-    # landmarks: normalizados [0..1]
     states = []
     thumb_tip = landmarks[4]; thumb_ip = landmarks[3]
     vec_thumb = (thumb_tip.x - thumb_ip.x, thumb_tip.y - thumb_ip.y)
@@ -163,13 +195,11 @@ try:
             print("[Advertencia] No se pudo leer un frame de la cámara.")
             break
 
-        # Vista fluida en 640x480; procesamos copia reducida
         display = cv2.flip(frame, 1) if flip_view else frame
         h, w = display.shape[:2]
         scale = target_proc_width / float(w)
         proc_img = cv2.resize(display, (target_proc_width, int(h * scale)), interpolation=cv2.INTER_AREA)
 
-        # MediaPipe requiere RGB
         proc_rgb = cv2.cvtColor(proc_img, cv2.COLOR_BGR2RGB)
         results = hands.process(proc_rgb)
 
@@ -181,7 +211,6 @@ try:
                 is_right = handedness.classification[0].label == "Right"
                 finger_states = get_finger_states(hand_landmarks.landmark, is_right)
 
-                # Dibujar (sobre la imagen display de 640x480)
                 mp_drawing.draw_landmarks(
                     display,
                     hand_landmarks,
@@ -201,7 +230,6 @@ try:
         else:
             cancel_active = False
 
-        # Estado en pantalla
         state_text = ["Esperando Alerta", "Esperando Confirmación", "Secuencia Completa"][current_state]
         cv2.putText(display, f"Estado: {state_text}", (10, 28),
                     cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 255), 2)
@@ -218,10 +246,10 @@ try:
                 if arduino:
                     arduino.write(b'1')
                 print(">>> CONFIRMACIÓN DETECTADA - LED ENCENDIDO <<<")
-                print(">>> Abriendo WhatsApp Web (envío manual) <<<")
+                print(">>> Enviando mensajes de auxilio por WhatsApp (Brave) <<<")
                 enviar_mensajes_emergencia()
                 ultima_alerta = ahora
-                time.sleep(2)  # pequeña pausa tras abrir chats
+                time.sleep(2)
             else:
                 print(">>> Alerta ignorada: en tiempo de bloqueo <<<")
             current_state = State.WAITING_ALERT
@@ -234,7 +262,6 @@ try:
             print(">>> Alarma cancelada <<<")
             time.sleep(0.3)
 
-        # Mostrar
         cv2.imshow('Detección de Gestos', display)
         if cv2.waitKey(1) & 0xFF == 27:  # ESC
             break
