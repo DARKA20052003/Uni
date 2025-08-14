@@ -5,8 +5,18 @@ import mediapipe as mp
 import serial
 import time
 import pywhatkit as kit
+import signal
+import subprocess
 
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
+
+### --- CERRAR OTRA INSTANCIA PREVIA --- ###
+proc_name = "made_In_Uteg.py"
+result = subprocess.run(["pgrep", "-f", proc_name], capture_output=True, text=True)
+for pid in result.stdout.split():
+    if pid and int(pid) != os.getpid():
+        print(f"[INFO] Cerrando instancia previa PID {pid}")
+        os.kill(int(pid), signal.SIGTERM)
 
 ### --- CONFIGURACIÓN --- ###
 numeros_emergencia = [
@@ -74,19 +84,27 @@ def get_finger_states(landmarks, is_right_hand):
         states.append(1 if landmarks[tip].y < landmarks[pip].y - margin else 0)
     return states
 
+### --- INICIALIZACIÓN DE CÁMARA --- ###
 cap = cv2.VideoCapture(0)
-cap.set(cv2.CAP_PROP_FRAME_WIDTH, 250)
-cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 150)
+cap.set(cv2.CAP_PROP_FRAME_WIDTH, 320)
+cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 240)
 
 if not cap.isOpened():
     print("[Error Cámara] No se pudo acceder a la cámara.")
     exit()
 
+# Crear ventana una sola vez
+cv2.namedWindow('Detección de Gestos', cv2.WINDOW_NORMAL)
+
+ultima_alerta = 0
+tiempo_bloqueo = 30  # segundos de espera antes de permitir otra alerta
+
 try:
-    while cap.isOpened():
+    while True:
         success, image = cap.read()
         if not success:
-            continue
+            print("[Advertencia] No se pudo leer un frame de la cámara.")
+            break
 
         image = cv2.flip(image, 1)
         image.flags.writeable = False
@@ -139,19 +157,24 @@ try:
             print(">>> ALERTA DETECTADA <<<")
 
         elif current_state == State.WAITING_CONFIRM and confirm_active:
-            current_state = State.COMPLETE
-            if arduino:
-                arduino.write(b'1')
-            print(">>> CONFIRMACIÓN DETECTADA - LED ENCENDIDO <<<")
-            print(">>> Enviando mensajes de auxilio por WhatsApp <<<")
-            enviar_mensajes_emergencia()
-            time.sleep(2)
+            ahora = time.time()
+            if ahora - ultima_alerta > tiempo_bloqueo:
+                current_state = State.COMPLETE
+                if arduino:
+                    arduino.write(b'1')
+                print(">>> CONFIRMACIÓN DETECTADA - LED ENCENDIDO <<<")
+                print(">>> Enviando mensajes de auxilio por WhatsApp <<<")
+                enviar_mensajes_emergencia()
+                ultima_alerta = ahora
+                time.sleep(5)
+            else:
+                print(">>> Alerta ignorada: en tiempo de bloqueo <<<")
             current_state = State.WAITING_ALERT
 
         elif current_state != State.WAITING_ALERT and cancel_active:
             current_state = State.WAITING_ALERT
             if arduino:
-                arduino.write(b'0')  # Apagar el LED
+                arduino.write(b'0')  # Apagar LED
             print(">>> GESTO DE CANCELACIÓN DETECTADO <<<")
             print(">>> Alarma cancelada <<<")
             time.sleep(2)
@@ -160,8 +183,10 @@ try:
         if cv2.waitKey(5) & 0xFF == 27:
             break
 
+except KeyboardInterrupt:
+    print("\n[INFO] Programa detenido manualmente.")
 except Exception as e:
-    print(f"Error: {e}")
+    print(f"[Error] {e}")
 finally:
     cap.release()
     cv2.destroyAllWindows()
