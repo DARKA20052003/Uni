@@ -7,7 +7,6 @@ import subprocess
 import signal
 import webbrowser
 from urllib.parse import urlencode, quote
-import shutil
 import re
 
 # --- Ajustes OpenCV / logs ---
