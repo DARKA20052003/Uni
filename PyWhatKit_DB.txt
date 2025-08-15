@@ -78,3 +78,23 @@ Time: 23:23
 Phone Number: +593979216140
 Message: 🚨 ¡Emergencia! Se ha confirmado una alerta con gestos. Por favor, contactar con la persona inmediatamente.
 --------------------
+Date: 15/8/2025
+Time: 9:23
+Phone Number: +593979216140
+Message: 🚨 ¡Emergencia! Se ha confirmado una alerta con gestos. Por favor, contactar con la persona inmediatamente.
+--------------------
+Date: 15/8/2025
+Time: 9:41
+Phone Number: +593979216140
+Message: 🚨 ¡Emergencia! Se ha confirmado una alerta con gestos. Por favor, contactar con la persona inmediatamente.
+--------------------
+Date: 15/8/2025
+Time: 10:4
+Phone Number: +593979216140
+Message: 🚨 ¡Emergencia! Se ha confirmado una alerta con gestos. Por favor, contactar con la persona inmediatamente.
+--------------------
+Date: 15/8/2025
+Time: 12:21
+Phone Number: +593979216140
+Message: 🚨 ¡Emergencia! Se ha confirmado una alerta con gestos. Por favor, contactar con la persona inmediatamente.
+--------------------
