@@ -1,0 +1,37 @@
+[0.642s] Invoking command in '/home/darka/Uni/linux/ros2_ws/src/mi_paquete': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/darka/Uni/linux/ros2_ws/build/mi_paquete/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/darka/Uni/linux/ros2_ws/install/mi_paquete/lib/python3.12/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(.venv) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/mi_paquete build --build-base /home/darka/Uni/linux/ros2_ws/build/mi_paquete/build install --record /home/darka/Uni/linux/ros2_ws/build/mi_paquete/install.log --single-version-externally-managed install_data
+[0.831s] running egg_info
+[0.832s] creating ../../build/mi_paquete/mi_paquete.egg-info
+[0.845s] writing ../../build/mi_paquete/mi_paquete.egg-info/PKG-INFO
+[0.845s] writing dependency_links to ../../build/mi_paquete/mi_paquete.egg-info/dependency_links.txt
+[0.845s] writing entry points to ../../build/mi_paquete/mi_paquete.egg-info/entry_points.txt
+[0.845s] writing requirements to ../../build/mi_paquete/mi_paquete.egg-info/requires.txt
+[0.846s] writing top-level names to ../../build/mi_paquete/mi_paquete.egg-info/top_level.txt
+[0.846s] writing manifest file '../../build/mi_paquete/mi_paquete.egg-info/SOURCES.txt'
+[0.873s] reading manifest file '../../build/mi_paquete/mi_paquete.egg-info/SOURCES.txt'
+[0.873s] writing manifest file '../../build/mi_paquete/mi_paquete.egg-info/SOURCES.txt'
+[0.874s] running build
+[0.874s] running build_py
+[0.874s] creating /home/darka/Uni/linux/ros2_ws/build/mi_paquete/build
+[0.874s] creating /home/darka/Uni/linux/ros2_ws/build/mi_paquete/build/lib
+[0.874s] creating /home/darka/Uni/linux/ros2_ws/build/mi_paquete/build/lib/mi_paquete
+[0.874s] copying mi_paquete/nodo_ejemplo.py -> /home/darka/Uni/linux/ros2_ws/build/mi_paquete/build/lib/mi_paquete
+[0.874s] copying mi_paquete/__init__.py -> /home/darka/Uni/linux/ros2_ws/build/mi_paquete/build/lib/mi_paquete
+[0.874s] running install
+[0.879s] running install_lib
+[0.893s] creating /home/darka/Uni/linux/ros2_ws/install/mi_paquete/lib/python3.12/site-packages/mi_paquete
+[0.893s] copying /home/darka/Uni/linux/ros2_ws/build/mi_paquete/build/lib/mi_paquete/nodo_ejemplo.py -> /home/darka/Uni/linux/ros2_ws/install/mi_paquete/lib/python3.12/site-packages/mi_paquete
+[0.893s] copying /home/darka/Uni/linux/ros2_ws/build/mi_paquete/build/lib/mi_paquete/__init__.py -> /home/darka/Uni/linux/ros2_ws/install/mi_paquete/lib/python3.12/site-packages/mi_paquete
+[0.893s] byte-compiling /home/darka/Uni/linux/ros2_ws/install/mi_paquete/lib/python3.12/site-packages/mi_paquete/nodo_ejemplo.py to nodo_ejemplo.cpython-312.pyc
+[0.894s] byte-compiling /home/darka/Uni/linux/ros2_ws/install/mi_paquete/lib/python3.12/site-packages/mi_paquete/__init__.py to __init__.cpython-312.pyc
+[0.894s] running install_data
+[0.894s] creating /home/darka/Uni/linux/ros2_ws/install/mi_paquete/share/ament_index
+[0.894s] creating /home/darka/Uni/linux/ros2_ws/install/mi_paquete/share/ament_index/resource_index
+[0.894s] creating /home/darka/Uni/linux/ros2_ws/install/mi_paquete/share/ament_index/resource_index/packages
+[0.894s] copying resource/mi_paquete -> /home/darka/Uni/linux/ros2_ws/install/mi_paquete/share/ament_index/resource_index/packages
+[0.894s] copying package.xml -> /home/darka/Uni/linux/ros2_ws/install/mi_paquete/share/mi_paquete
+[0.894s] running install_egg_info
+[0.910s] Copying ../../build/mi_paquete/mi_paquete.egg-info to /home/darka/Uni/linux/ros2_ws/install/mi_paquete/lib/python3.12/site-packages/mi_paquete-0.0.0-py3.12.egg-info
+[0.911s] running install_scripts
+[1.008s] Installing nodo script to /home/darka/Uni/linux/ros2_ws/install/mi_paquete/lib/mi_paquete
+[1.009s] writing list of installed files to '/home/darka/Uni/linux/ros2_ws/build/mi_paquete/install.log'
+[1.035s] Invoked command in '/home/darka/Uni/linux/ros2_ws/src/mi_paquete' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/darka/Uni/linux/ros2_ws/build/mi_paquete/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/darka/Uni/linux/ros2_ws/install/mi_paquete/lib/python3.12/site-packages:${PYTHONPATH} VIRTUAL_ENV_PROMPT=(.venv) /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/mi_paquete build --build-base /home/darka/Uni/linux/ros2_ws/build/mi_paquete/build install --record /home/darka/Uni/linux/ros2_ws/build/mi_paquete/install.log --single-version-externally-managed install_data
