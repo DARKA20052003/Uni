@@ -26,7 +26,7 @@ class Producto:
         return self.precio * self.cantidad
 
 # Funciones para manejar el archivo Excel
-EXCEL_FILE = "inventario.xlsx"
+EXCEL_FILE = "/home/darka/Uni/practicaPOO/tallerFinal/Ejercicio2/inventario.xlsx"
 
 def crear_archivo_si_no_existe():
     if not os.path.exists(EXCEL_FILE):

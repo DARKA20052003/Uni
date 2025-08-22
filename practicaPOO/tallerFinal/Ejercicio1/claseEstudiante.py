@@ -22,9 +22,9 @@ class Estudiante:
         return f"{self.nombre} - {self.carrera} - {self.promedio}" #Retorna una cadena de la info del estudiante
 
 class RegistroEstudiantes:
-    def __init__(self, archivo='estudiantes.xlsx'): #Inicia el archivo en una clase con los métodos para cargar, agregar y calcular el mejor promedio.
+    def __init__(self, archivo='/home/darka/Uni/practicaPOO/tallerFinal/Ejercicio1/estudiantes.xlsx'): #Inicia el archivo en una clase con los métodos para cargar, agregar y calcular el mejor promedio.
         self.archivo = archivo
-        self.estudiantes = []
+        self.estudiantes = [] #Set vacío de estudiantes.
         self.cargar_estudiantes()
 
     def cargar_estudiantes(self):
