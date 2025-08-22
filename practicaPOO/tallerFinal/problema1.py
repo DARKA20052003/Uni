@@ -39,14 +39,14 @@ class RegistroEstudiantes:
 
     def agregar_estudiante(self, estudiante):
         self.estudiantes.append(estudiante)
-        self.guardar_estudiantes()
-
-    def guardar_estudiantes(self):
-        wb = Workbook()
-        ws = wb.active
-        ws.append(['Nombre', 'Carrera', 'Promedio'])
-        for est in self.estudiantes:
-            ws.append([est.nombre, est.carrera, est.promedio])
+        if os.path.exists(self.archivo):
+            wb = load_workbook(self.archivo)
+            ws = wb.active
+        else:
+            wb = Workbook()
+            ws = wb.active
+            ws.append(['Nombre', 'Carrera', 'Promedio'])
+        ws.append([estudiante.nombre, estudiante.carrera, estudiante.promedio])
         wb.save(self.archivo)
 
     def estudiante_mejor_promedio(self):
