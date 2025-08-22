@@ -13,16 +13,16 @@ from openpyxl import Workbook, load_workbook
 import os
 
 class Estudiante:
-    def __init__(self, nombre, carrera, promedio):
+    def __init__(self, nombre, carrera, promedio): #Clase Estudiante iniciada con nombre, carrera y promedio.
         self.nombre = nombre
         self.carrera = carrera
-        self.promedio = float(promedio)  # Asegura tipo float
+        self.promedio = float(promedio)  #Asegura que el promedio sea un número.
 
     def __str__(self):
-        return f"{self.nombre} - {self.carrera} - {self.promedio}"
+        return f"{self.nombre} - {self.carrera} - {self.promedio}" #Retorna una cadena de la info del estudiante
 
 class RegistroEstudiantes:
-    def __init__(self, archivo='estudiantes.xlsx'):
+    def __init__(self, archivo='estudiantes.xlsx'): #Inicia el archivo en una clase con los métodos para cargar, agregar y calcular el mejor promedio.
         self.archivo = archivo
         self.estudiantes = []
         self.cargar_estudiantes()
@@ -88,26 +88,26 @@ def mostrar_mejor():
 
 registro = RegistroEstudiantes()
 
-root = tk.Tk()
-root.title("Registro de Estudiantes")
+ventana = tk.Tk()
+ventana.title("Registro de Estudiantes")
 
-tk.Label(root, text="Nombre:").grid(row=0, column=0)
-entry_nombre = tk.Entry(root)
+tk.Label(ventana, text="Nombre:").grid(row=0, column=0)
+entry_nombre = tk.Entry(ventana)
 entry_nombre.grid(row=0, column=1)
 
-tk.Label(root, text="Carrera:").grid(row=1, column=0)
-entry_carrera = tk.Entry(root)
+tk.Label(ventana, text="Carrera:").grid(row=1, column=0)
+entry_carrera = tk.Entry(ventana)
 entry_carrera.grid(row=1, column=1)
 
-tk.Label(root, text="Promedio:").grid(row=2, column=0)
-entry_promedio = tk.Entry(root)
+tk.Label(ventana, text="Promedio:").grid(row=2, column=0)
+entry_promedio = tk.Entry(ventana)
 entry_promedio.grid(row=2, column=1)
 
-tk.Button(root, text="Agregar", command=agregar).grid(row=3, column=0, columnspan=2, pady=5)
-tk.Button(root, text="Mejor Promedio", command=mostrar_mejor).grid(row=4, column=0, columnspan=2, pady=5)
+tk.Button(ventana, text="Agregar", command=agregar).grid(row=3, column=0, columnspan=2, pady=5)
+tk.Button(ventana, text="Mejor Promedio", command=mostrar_mejor).grid(row=4, column=0, columnspan=2, pady=5)
 
-lista = tk.Listbox(root, width=40)
+lista = tk.Listbox(ventana, width=40)
 lista.grid(row=5, column=0, columnspan=2, pady=10)
 actualizar_lista()
 
-root.mainloop()
+ventana.mainloop()
