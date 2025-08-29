@@ -27,7 +27,7 @@ class RegistroEstudiantes:
         self.estudiantes = [] #Set vacío de estudiantes.
         self.cargar_estudiantes()
 
-    def cargar_estudiantes(self):
+    def cargar_estudiantes(self): #Carga la lista de estudiantes.
         self.estudiantes = []  # Limpia la lista antes de cargar
         if os.path.exists(self.archivo):
             wb = load_workbook(self.archivo)

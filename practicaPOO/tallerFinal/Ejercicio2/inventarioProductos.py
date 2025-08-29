@@ -47,7 +47,7 @@ def cargar_productos():
     wb = load_workbook(EXCEL_FILE)
     ws = wb.active
     productos = []
-    for row in ws.iter_rows(min_row=2, values_only=True):
+    for row in ws.iter rows(min_row=2, values_only=True):
         productos.append(Producto(*row))
     return productos
 
@@ -62,7 +62,7 @@ class InventarioApp:
         self.nombre_entry = tk.Entry(root)
         self.nombre_entry.grid(row=0, column=1)
 
-        tk.Label(root, text="Precio:").grid(row=1, column=0)
+        tk.Label(root, text="$Precio:").grid(row=1, column=0)
         self.precio_entry = tk.Entry(root)
         self.precio_entry.grid(row=1, column=1)
 
@@ -75,7 +75,7 @@ class InventarioApp:
         tk.Button(root, text="Calcular Valor Total", command=self.calcular_valor_total).grid(row=5, column=0, columnspan=2, pady=5)
 
         # Tabla de productos
-        self.tree = ttk.Treeview(root, columns=("Nombre", "Precio", "Cantidad"), show="headings")
+        self.tree = ttk.Treeview(root, columns=("Nombre", "Precio", "Cantidad"), show="headings", )
         self.tree.heading("Nombre", text="Nombre")
         self.tree.heading("Precio", text="Precio")
         self.tree.heading("Cantidad", text="Cantidad")
@@ -108,7 +108,7 @@ class InventarioApp:
             self.tree.delete(row)
         productos = cargar_productos()
         for p in productos:
-            self.tree.insert("", tk.END, values=(p.nombre, f"{p.precio:.2f}", p.cantidad))
+            self.tree.insert("", tk.END, values=(p.nombre, f"${p.precio:.2f}", p.cantidad))
 
     def calcular_valor_total(self):
         productos = cargar_productos()
