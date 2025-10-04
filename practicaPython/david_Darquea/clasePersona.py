@@ -16,12 +16,3 @@ class Persona: #Class es keyword de Python para crear clases y la primera letra 
         self.cedulaDeIdentidad=ci
     def actualizarCI(self, nuevaCI):
         self.ci=nuevaCI
-'''2. Instanciar objetos'''
-persona1=Persona('David',22,1313824045)
-persona2=Persona('Marlon',19,1234567890)
-persona3=Persona('Tyffany',17,9876543210)
-persona4=Persona('Miguel',18,2846791350)
-print(persona1.cedulaDeIdentidad)
-persona1.actualizarCI(1304875782)
-print (persona1.anoDeNacimiento)
-#print(persona1.cedulaDeIdentidad)
