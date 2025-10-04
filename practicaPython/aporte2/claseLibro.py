@@ -19,12 +19,14 @@ class Libro:
         descuento=self.precio*porcentaje
         precio_de_descuento=self.precio-descuento
         self.precio=precio_de_descuento
-        print(f'El precio de promoción es: ${self.precio-descuento}')
+        print(f'El precio de promoción es: ${self.precio}')
         print('*'*30)
     def es_antiguo(self):
         diferencia=2025-self.anio_publicacion
-        if diferencia>20:
+        if diferencia>20 and diferencia<=50:
             print('El libro es viejo.')
+        elif diferencia>50:
+            print('El libro es muy viejo.')
         else:
             print('El libro no es antiguo.')
 #Ejemplos
