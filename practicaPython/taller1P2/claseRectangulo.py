@@ -14,11 +14,3 @@ class Rectangulo:
     def perimetro(self):
         print (2*(self.alto + self.ancho))
 
-r1=Rectangulo(12, 24)
-r2=Rectangulo(10, 5)
-
-r1.area()
-r1.perimetro()
-
-r2.area()
-r2.perimetro()

@@ -31,15 +31,3 @@ class CuentaBancaria:
         print(f'Titular: {self.titular}\nSaldo: ${self.saldo}')
         print('-'*30)
 
-cuenta1 = CuentaBancaria('Andrés David Darquea Alcívar', 100)
-cuenta2 = CuentaBancaria('Cindy Vanessa Alcívar Murillo', 326)
-
-cuenta1.mostrarSaldo()
-cuenta1.retirar(50)
-cuenta1.mostrarSaldo()
-
-cuenta2.retirar(327)
-cuenta2.retirar(30)
-cuenta2.mostrarSaldo()
-cuenta2.retirar(300)
-cuenta2.mostrarSaldo()

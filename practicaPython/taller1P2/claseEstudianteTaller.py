@@ -19,18 +19,3 @@ class Estudiante:
             print('Aprobado.')
         else:
             print('Reprobado.')
-
-estudiante1=Estudiante('Andrés David Darquea Alcívar', 22, 'Ingeniería en Software', [8, 9, 7, 8])
-estudiante2=Estudiante('Galo Eusebio Enriquez Vera', 19, 'Ingeniería Industrial', [6, 4, 6, 2])
-
-#Primera prueba.
-print('*'*50)
-print(f'Estudiante: {estudiante1.nombre}\nEdad:{estudiante1.edad}\nCarrera:{estudiante1.carrera}')
-estudiante1.aprobo()
-print('*'*50)
-
-#Segunda prueba.
-print('*'*50)
-print(f'Estudiante: {estudiante2.nombre}\nEdad:{estudiante2.edad}\nCarrera:{estudiante2.carrera}')
-estudiante2.aprobo()
-print('*'*50)
