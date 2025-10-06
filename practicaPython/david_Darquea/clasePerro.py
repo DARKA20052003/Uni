@@ -6,7 +6,3 @@ class Perro:
     def actualizarNombre(self, nuevoNombre):
         nombreViejo=self.nombre
         print(f'{nombreViejo} ahora se llama {nuevoNombre}.')
-perro1=Perro('Corviche')
-perro2=Perro('Pelusa')
-perro2.ladrar()
-perro2.actualizarNombre('Lara')
