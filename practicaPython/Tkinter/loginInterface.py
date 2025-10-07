@@ -18,7 +18,7 @@ entradaContraseña.get()
 def validar():
     usuario=entradaUsuario.get()
     contraseña=entradaContraseña.get()
-    if usuario and contraseña == nombreDeUsuarioRegistrado and contrasenaRegistrada:
+    if usuario == nombreDeUsuarioRegistrado and contraseña == contrasenaRegistrada:
         resultado.config(text='Ingreso exitoso')
     else:
         resultado.config(text='Acceso denegado')
